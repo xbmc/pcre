@@ -573,16 +573,16 @@ ENDIF(MSVC AND NOT PCRE_STATIC)
 # Fix static compilation with MSVC: https://bugs.exim.org/show_bug.cgi?id=1681
 # This code was taken from the CMake wiki, not from WebM.
 
-IF(MSVC AND PCRE_STATIC)
-  MESSAGE(STATUS "** MSVC and PCRE_STATIC: modifying compiler flags to use static runtime library")
-  foreach(flag_var
-          CMAKE_C_FLAGS CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE
-          CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO
-          CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
-          CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
-    string(REGEX REPLACE "/MD" "/MT" ${flag_var} "${${flag_var}}")
-  endforeach()
-ENDIF(MSVC AND PCRE_STATIC)
+# IF(MSVC AND PCRE_STATIC)
+#   MESSAGE(STATUS "** MSVC and PCRE_STATIC: modifying compiler flags to use static runtime library")
+#   foreach(flag_var
+#           CMAKE_C_FLAGS CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE
+#           CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO
+#           CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+#           CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+#     string(REGEX REPLACE "/MD" "/MT" ${flag_var} "${${flag_var}}")
+#   endforeach()
+# ENDIF(MSVC AND PCRE_STATIC)
 
 SET(PCRECPP_HEADERS
   pcrecpp.h
